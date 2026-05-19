@@ -4,95 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>challenge.thrill | Real Insights. No Hype.</title>
-    <!-- Tailwind CSS CDN (No installation needed, works in browser) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom Glowing and Dark Theme Effects */
-        body {
-            background-color: #0b0f19;
-        }
-        .neon-glow {
-            text-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
-        }
-        .brand-card {
+        body { background-color: #0b0f19; }
+        .neon-glow { text-shadow: 0 0 10px rgba(34, 197, 94, 0.6); }
+        .clickable-card {
             background: rgba(17, 24, 39, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .brand-card:hover {
-            border-color: rgba(34, 197, 94, 0.4);
+            cursor: pointer;
             transition: all 0.3s ease;
+        }
+        .clickable-card:hover {
+            border-color: rgba(34, 197, 94, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.1);
         }
     </style>
 </head>
 <body class="text-gray-200 font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Header / Navbar -->
+    <!-- Header -->
     <header class="w-full max-w-5xl mx-auto px-6 py-6 flex justify-between items-center">
-        <div class="text-xl font-black tracking-wider text-green-500 neon-glow">
-            challenge.thrill
-        </div>
-        <div>
-            <a href="https://instagram.com/challenge.thrill" target="_blank" class="text-sm bg-green-600 hover:bg-green-500 text-black font-bold px-4 py-2 rounded-full transition duration-300">
-                Instagram
-            </a>
-        </div>
+        <div class="text-xl font-black tracking-wider text-green-500 neon-glow">challenge.thrill</div>
+        <a href="https://instagram.com/challenge.thrill" target="_blank" class="text-sm bg-green-600 hover:bg-green-500 text-black font-bold px-4 py-2 rounded-full transition">Instagram </a>
     </header>
 
-    <!-- Main Hero Section -->
+    <!-- Main -->
     <main class="w-full max-w-4xl mx-auto px-6 py-12 flex-grow flex flex-col justify-center text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-4">
-            Mathematics Behind The Markets & Business
-        </h1>
-        <p class="text-green-400 font-mono tracking-widest text-sm md:text-base uppercase mb-8 neon-glow">
-            Trading | Business | Diamonds 
-        </p>
-        <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg mb-12">
-            We engineer lightweight digital tools, custom mathematical models, and automation scripts. 
-            <span class="text-white font-semibold">Real insights. No hype.</span>
-        </p>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Mathematics Behind The Markets</h1>
+        <p class="text-green-400 font-mono tracking-widest text-sm uppercase mb-12 neon-glow">Trading | Business | Diamonds </p>
 
-        <!-- The 3 Pillars / Core Focus Areas -->
+        <!-- 3 MAIN BUTTONS (CARDS) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             
-            <!-- Pillar 1 -->
-            <div class="brand-card p-6 rounded-2xl">
+            <!-- Button 1: Market Math -->
+            <div onclick="window.location.href='market-math.html'" class="clickable-card p-6 rounded-2xl">
                 <div class="text-2xl mb-3">📊</div>
-                <h3 class="text-xl font-bold text-white mb-2">Market Math</h3>
-                <p class="text-sm text-gray-400">Building risk management tools, position sizing calculators, and analytical trading logs. 100% data-driven.</p>
+                <h3 class="text-xl font-bold text-white mb-2">Market Math &rarr;</h3>
+                <p class="text-sm text-gray-400">Click to access Risk Management, Position Sizing, and Trading Logs.</p>
             </div>
 
-            <!-- Pillar 2 -->
-            <div class="brand-card p-6 rounded-2xl">
+            <!-- Button 2: Business Intel -->
+            <div onclick="window.location.href='business-intel.html'" class="clickable-card p-6 rounded-2xl">
                 <div class="text-2xl mb-3">💼</div>
-                <h3 class="text-xl font-bold text-white mb-2">Business Intel</h3>
-                <p class="text-sm text-gray-400">Crafting custom dashboards, workflows, and automation scripts to solve core revenue puzzles.</p>
+                <h3 class="text-xl font-bold text-white mb-2">Business Intel &rarr;</h3>
+                <p class="text-sm text-gray-400">Click to explore Custom Dashboards, Revenue Workflows, and Automation Scripts.</p>
             </div>
 
-            <!-- Pillar 3 -->
-            <div class="brand-card p-6 rounded-2xl">
+            <!-- Button 3: Luxury Math -->
+            <div onclick="window.location.href='luxury-math.html'" class="clickable-card p-6 rounded-2xl">
                 <div class="text-2xl mb-3">💎</div>
-                <h3 class="text-xl font-bold text-white mb-2">Luxury Math</h3>
-                <p class="text-sm text-gray-400">Developing precision pricing algorithms and grading data models for the diamond industry.</p>
+                <h3 class="text-xl font-bold text-white mb-2">Luxury Math &rarr;</h3>
+                <p class="text-sm text-gray-400">Click to view Precision Pricing Algorithms and Diamond Data Models.</p>
             </div>
 
-        </div>
-
-        <!-- Call to Action / Future Products Section -->
-        <div class="mt-16 p-8 rounded-3xl bg-gradient-to-r from-green-950/30 to-slate-900 border border-green-500/20 inline-block mx-auto max-w-xl">
-            <span class="px-3 py-1 text-xs font-mono bg-green-500/10 text-green-400 border border-green-500/30 rounded-full uppercase">Current Status</span>
-            <h4 class="text-lg font-bold text-white mt-3 mb-1">Learning. Building. Growing.</h4>
-            <p class="text-sm text-gray-400">Our first open-source mathematical tools are currently under development. Stay tuned via Instagram.</p>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="w-full max-w-5xl mx-auto px-6 py-8 text-center border-t border-gray-800/50 text-xs text-gray-500">
         <p>&copy; 2026 challenge.thrill. All rights reserved.</p>
-        <p class="mt-1">Built with mathematical precision by a tech developer.</p>
     </footer>
 
 </body>
 </html>
-
 
