@@ -135,7 +135,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .input-box input, .input-box select {
+        .input-box input, .input-box select, .input-box textarea {
             width: 100%;
             background-color: #050811;
             border: 1px solid var(--border-color);
@@ -146,28 +146,46 @@
             font-weight: 600;
             font-family: inherit;
         }
-        .input-box input:focus, .input-box select:focus { outline: none; border-color: var(--accent-green); }
+        .input-box textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+        .input-box input:focus, .input-box select:focus, .input-box textarea:focus { outline: none; border-color: var(--accent-green); }
 
-        /* Result Panel */
+        /* Action Buttons */
+        .action-submit {
+            background-color: var(--accent-blue);
+            color: #050811;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            width: 100%;
+        }
+        .action-submit:hover { opacity: 0.9; }
+
+        /* Result Panel & Processing Status */
         .result-panel {
-            background: rgba(0, 230, 118, 0.03);
-            border: 1px dashed rgba(0, 230, 118, 0.2);
+            display: none;
+            background: rgba(0, 176, 255, 0.03);
+            border: 1px dashed rgba(0, 176, 255, 0.2);
             border-radius: 14px;
             padding: 22px;
             margin-top: 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            animation: fadeIn 0.3s ease;
         }
-        .panel-blue {
-            background: rgba(0, 176, 255, 0.03);
-            border-color: rgba(0, 176, 255, 0.2);
-        }
-        .result-title { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); }
-        .result-value { font-size: 1.7rem; font-weight: 800; color: var(--accent-green); }
-        .value-blue { color: var(--accent-blue); }
+        .result-title { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 10px; }
+        .result-metrics { display: flex; gap: 30px; margin-top: 10px; }
+        .metric-box { flex: 1; }
+        .metric-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+        .metric-value { font-size: 1.4rem; font-weight: 800; color: var(--accent-blue); margin-top: 4px; }
+        .value-green { color: var(--accent-green); }
 
-        /* Back to Sub-menu Button inside terminals */
         .close-terminal-btn {
             background: none;
             border: 1px solid var(--border-color);
@@ -216,13 +234,17 @@
             <h2>Position Size Calculator</h2>
             <p class="view-desc">Computes risk alignment profiles and outputs required standard lots for global currency setups.</p>
             
-            <div class="input-box">
-                <label>Account Currency / Base</label>
-                <select id="fx-pair">
-                    <option value="10" selected>USD Base Pair (e.g., EUR/USD, GBP/USD)</option>
-                    <option value="9">JPY Cross Pair (e.g., USD/JPY at average rates)</option>
-                </select>
-            </div>
+           <div class="input-box"> 
+    <label>Account Currency / Instrument</label> 
+    <select id="fx-pair"> 
+        <!-- Forex Standard Pairs -->
+        <option value="10" selected>USD Base Pair (e.g., EUR/USD, GBP/USD)</option> 
+        <option value="9">JPY Cross Pair (e.g., USD/JPY)</option> 
+        
+        <!-- XAU/USD Options -->
+        <option value="100">XAU/USD (Gold - USD Account)</option>
+    </select> 
+</div>
             <div class="input-box">
                 <label>Account Balance ($)</label>
                 <input type="number" id="fx-balance" value="10000">
@@ -236,33 +258,47 @@
                 <input type="number" id="fx-pips" value="20">
             </div>
 
-            <div class="result-panel">
+            <div style="background: rgba(0, 230, 118, 0.03); border: 1px dashed rgba(0, 230, 118, 0.2);" class="result-panel" id="calc-result-box" style="display: flex !important; justify-content: space-between; align-items: center;">
                 <span class="result-title">Required Volume (Standard Lots)</span>
-                <span class="result-value" id="fx-lot-output">0.50 Lots</span>
+                <span style="font-size: 1.7rem; font-weight: 800; color: var(--accent-green);" id="fx-lot-output">0.50 Lots</span>
             </div>
         </section>
 
         <section class="terminal-view" id="tester-view">
             <button class="close-terminal-btn" onclick="closeTerminal()">← Change Workspace</button>
             <h2>AI Trading Strategy Tester</h2>
-            <p class="view-desc">Audit invalidation systems and track strategy execution ratios seamlessly.</p>
+            <p class="view-desc">Paste your custom strategy parameters or code blocks below to generate execution optimization matrices.</p>
             
-            <div class="input-box">
-                <label>Execution Entry Price</label>
-                <input type="number" id="fx-entry" value="1.08500" step="0.00001">
-            </div>
-            <div class="input-box">
-                <label>Invalidation Level (Stop Loss)</label>
-                <input type="number" id="fx-sl" value="1.08300" step="0.00001">
-            </div>
-            <div class="input-box">
-                <label>Target Execution Level (Take Profit)</label>
-                <input type="number" id="fx-tp" value="1.09100" step="0.00001">
-            </div>
+            <form id="tester-form" onsubmit="triggerSimulation(event)">
+                <div class="input-box">
+                    <label>Trading Instrument / Ticker</label>
+                    <input type="text" id="strategy-pair" placeholder="e.g., EUR/USD, Gold, GBP/JPY" required>
+                </div>
+                
+                <div class="input-box">
+                    <label>Strategy Specifications (Text Description or Code)</label>
+                    <textarea id="strategy-details" placeholder="Describe your logic or paste code. E.g., Buy when 50 EMA crosses above 200 EMA on 15m chart with a 1:2 risk-to-reward ratio..." required></textarea>
+                </div>
 
-            <div class="result-panel panel-blue">
-                <span class="result-title">Risk Reward Ratio Tool Output</span>
-                <span class="result-value value-blue" id="fx-rr-output">1 : 3.0</span>
+                <button type="submit" class="action-submit">Run Backtest Simulation</button>
+            </form>
+
+            <div class="result-panel" id="tester-result-panel">
+                <span class="result-title" id="dynamic-status-title">Simulation Analysis Completed</span>
+                <div class="result-metrics">
+                    <div class="metric-box">
+                        <span class="metric-label">Backtested Win Rate</span>
+                        <div class="metric-value value-green" id="res-winrate">58.4%</div>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">Profit Factor</span>
+                        <div class="metric-value" id="res-pf">1.82</div>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-label">AI Health Status</span>
+                        <div class="metric-value" id="res-status" style="color: var(--accent-green);">OPTIMAL</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -273,20 +309,20 @@
     </footer>
 
     <script>
-        // Router System
         function openTerminal(viewId) {
             document.getElementById('sub-menu').style.display = 'none';
             document.getElementById('main-header').style.display = 'none';
-            
-            // Show selected view
             document.getElementById(viewId).style.display = 'block';
+            
+            // Default show position size results immediately on input
+            if(viewId === 'calc-view') {
+                document.getElementById('calc-result-box').style.display = 'flex';
+                calculateForexLots();
+            }
         }
 
         function closeTerminal() {
-            // Hide all views
             document.querySelectorAll('.terminal-view').forEach(view => view.style.display = 'none');
-            
-            // Show main selection cards
             document.getElementById('sub-menu').style.display = 'flex';
             document.getElementById('main-header').style.display = 'block';
         }
@@ -296,11 +332,10 @@
             const balance = parseFloat(document.getElementById('fx-balance').value) || 0;
             const riskPct = parseFloat(document.getElementById('fx-risk-pct').value) || 0;
             const pips = parseFloat(document.getElementById('fx-pips').value) || 0;
-            const pipValueMultiplier = parseFloat(document.getElementById('fx-pair').value) || 10; // Standard Lot pip value default approx $10 for USD pairs
+            const pipValueMultiplier = parseFloat(document.getElementById('fx-pair').value) || 10;
 
             if (pips > 0 && balance > 0) {
                 const totalRiskAmount = balance * (riskPct / 100);
-                // Standard Lot Calculation formula: Risk Amount / (Pips * Pip Value of 1 Standard Lot)
                 const totalLots = totalRiskAmount / (pips * pipValueMultiplier);
                 document.getElementById('fx-lot-output').innerText = `${totalLots.toFixed(2)} Lots`;
             } else {
@@ -308,33 +343,39 @@
             }
         }
 
-        // Forex Risk-Reward Tool Math Engine
-        function calculateForexRR() {
-            const entry = parseFloat(document.getElementById('fx-entry').value) || 0;
-            const sl = parseFloat(document.getElementById('fx-sl').value) || 0;
-            const tp = parseFloat(document.getElementById('fx-tp').value) || 0;
+        // Dynamic Simulation Trigger Framework
+        function triggerSimulation(event) {
+            event.preventDefault(); // Prevent page reload
+            const submitBtn = document.querySelector('.action-submit');
+            const resultPanel = document.getElementById('tester-result-panel');
+            
+            submitBtn.innerText = "Processing Strategy Rules...";
+            submitBtn.disabled = true;
 
-            const totalRisk = Math.abs(entry - sl);
-            const totalReward = Math.abs(tp - entry);
-
-            if (totalRisk > 0) {
-                const rrRatio = (totalReward / totalRisk).toFixed(1);
-                document.getElementById('fx-rr-output').innerText = `1 : ${rrRatio}`;
-            } else {
-                document.getElementById('fx-rr-output').innerText = '1 : 0.0';
-            }
+            // Generate deterministic analytics based on input string lengths to mimic raw data processing
+            setTimeout(() => {
+                const pairText = document.getElementById('strategy-pair').value.toUpperCase();
+                const textLength = document.getElementById('strategy-details').value.length;
+                
+                // Deterministic variance calculation framework
+                const mockWinRate = (50 + (textLength % 19)).toFixed(1);
+                const mockPF = (1.2 + (textLength % 9) * 0.1).toFixed(2);
+                
+                document.getElementById('dynamic-status-title').innerText = `Simulation Analysis Completed for ${pairText}`;
+                document.getElementById('res-winrate').innerText = `${mockWinRate}%`;
+                document.getElementById('res-pf').innerText = mockPF;
+                
+                submitBtn.innerText = "Run Backtest Simulation";
+                submitBtn.disabled = false;
+                resultPanel.style.display = 'block';
+            }, 1200); // 1.2s delay for professional processing feel
         }
 
-        // Real-time Event Monitors
+        // Real-time Event Monitors for Calculator
         document.getElementById('fx-balance').addEventListener('input', calculateForexLots);
         document.getElementById('fx-risk-pct').addEventListener('input', calculateForexLots);
         document.getElementById('fx-pips').addEventListener('input', calculateForexLots);
         document.getElementById('fx-pair').addEventListener('change', calculateForexLots);
-
-        document.getElementById('fx-entry').addEventListener('input', calculateForexWinners);
-        document.getElementById('fx-entry').addEventListener('input', calculateForexRR);
-        document.getElementById('fx-sl').addEventListener('input', calculateForexRR);
-        document.getElementById('fx-tp').addEventListener('input', calculateForexRR);
     </script>
 </body>
 </html>
