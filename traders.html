@@ -3,17 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Forex Position Size Calculator & Real AI Strategy Tester | Challenge.Thrill</title>
-    <meta name="title" content="Forex Position Size Calculator & Real AI Strategy Tester | Challenge.Thrill">
-    <meta name="description" content="Calculate precise Forex lot sizes and execute real backtests using integrated Gemini AI strategy analytics. Zero clutter, pure precision.">
-    <meta name="keywords" content="AI trading strategy tester, position size calculator India, risk reward ratio tool, Forex lot size calculator, Challenge Thrill traders, Real Gemini AI trading">
-    <meta name="robots" content="index, follow">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2 family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-main: #050811;
@@ -23,103 +16,46 @@
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --border-color: #1E293B;
-            --danger-red: #FF5252;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            min-height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-main); color: var(--text-main); min-height: 100vh; padding: 40px 20px; display: flex; flex-direction: column; justify-content: space-between; }
         .container { max-width: 800px; width: 100%; margin: 0 auto; }
         .back-nav { margin-bottom: 30px; }
         .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
         .back-link:hover { color: var(--accent-green); }
-
         header { margin-bottom: 40px; text-align: center; }
-        header h1 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #FFF 60%, var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        header h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; background: linear-gradient(135deg, #FFF 60%, var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         header p { color: var(--text-muted); font-size: 1.1rem; }
-
         .sub-nav-grid { display: flex; flex-direction: column; gap: 20px; max-width: 500px; margin: 0 auto 40px auto; }
-        .sub-btn {
-            display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; border-radius: 16px;
-            font-size: 1.15rem; font-weight: 700; color: #FFF; text-decoration: none; background-color: var(--bg-card);
-            border: 1px solid var(--border-color); cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .sub-btn { display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; border-radius: 16px; font-size: 1.15rem; font-weight: 700; color: #FFF; text-decoration: none; background-color: var(--bg-card); border: 1px solid var(--border-color); cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .sub-btn::after { content: '→'; font-size: 1.3rem; transition: transform 0.3s; }
         .sub-btn:hover::after { transform: translateX(6px); }
         .btn-calc:hover { border-color: var(--accent-green); box-shadow: 0 0 25px rgba(0, 230, 118, 0.12); color: var(--accent-green); }
         .btn-tester:hover { border-color: var(--accent-blue); box-shadow: 0 0 25px rgba(0, 176, 255, 0.12); color: var(--accent-blue); }
-
         .terminal-view { display: none; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px; padding: 35px; margin-top: 20px; animation: fadeIn 0.4s ease forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
         .terminal-view h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
         .view-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 26px; }
-
         .input-box { margin-bottom: 20px; }
         .input-box label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
         .input-box input, .input-box select, .input-box textarea { width: 100%; background-color: #050811; border: 1px solid var(--border-color); padding: 14px; border-radius: 12px; color: #FFF; font-size: 1rem; font-weight: 600; font-family: inherit; }
         .input-box textarea { resize: vertical; min-height: 120px; font-weight: 400; font-size: 0.95rem; }
-        .input-box input:focus, .input-box select:focus, .input-box textarea:focus { outline: none; border-color: var(--accent-green); }
-
-        /* Premium Activation Banner */
-        .activation-banner {
-            background: rgba(255, 176, 0, 0.03);
-            border: 1px dashed rgba(255, 176, 0, 0.3);
-            padding: 20px;
-            border-radius: 14px;
-            margin-bottom: 24px;
-        }
-        .activation-banner h3 { font-size: 1rem; color: #FFB300; margin-bottom: 6px; font-weight: 700; }
-        .activation-banner p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px; }
-        .activation-flex { display: flex; gap: 10px; }
-        .activation-flex input { flex: 1; background-color: #050811; border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; color: #FFF; font-size: 0.9rem; }
-        .activation-btn { background-color: var(--accent-blue); color: #050811; border: none; padding: 0 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.9rem; }
-        .key-status { font-size: 0.85rem; font-weight: 600; margin-top: 10px; display: none; }
-
-        .action-submit { background-color: var(--accent-blue); color: #050811; border: none; padding: 16px 24px; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: opacity 0.2s; width: 100%; }
-        .action-submit:hover { opacity: 0.9; }
+        .action-submit { background-color: var(--accent-blue); color: #050811; border: none; padding: 16px 24px; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; }
         .action-submit:disabled { background-color: var(--border-color); color: var(--text-muted); cursor: not-allowed; }
-
-        /* Real AI Result Panels */
-        .result-panel { display: none; background: rgba(0, 176, 255, 0.02); border: 1px dashed rgba(0, 176, 255, 0.2); border-radius: 14px; padding: 25px; margin-top: 28px; animation: fadeIn 0.3s ease; }
-        .result-title { font-size: 1.1rem; font-weight: 700; color: #FFF; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
-        
+        .result-panel { display: none; background: rgba(0, 176, 255, 0.02); border: 1px dashed rgba(0, 176, 255, 0.2); border-radius: 14px; padding: 25px; margin-top: 28px; }
+        .result-title { font-size: 1.1rem; font-weight: 700; color: #FFF; margin-bottom: 15px; }
         .ai-report-content { color: #E2E8F0; font-size: 0.98rem; line-height: 1.7; white-space: pre-wrap; padding: 15px; background: #050811; border-radius: 10px; border: 1px solid var(--border-color); }
-
-        .close-terminal-btn { background: none; border: 1px solid var(--border-color); color: var(--text-muted); padding: 10px 18px; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.85rem; margin-bottom: 20px; display: inline-block; transition: all 0.2s; }
-        .close-terminal-btn:hover { background-color: #1E293B; color: #FFF; }
-
+        .close-terminal-btn { background: none; border: 1px solid var(--border-color); color: var(--text-muted); padding: 10px 18px; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.85rem; margin-bottom: 20px; display: inline-block; }
         footer { text-align: center; color: #1E293B; font-size: 0.85rem; font-weight: 700; padding-top: 40px; margin-top: 40px; border-top: 1px solid var(--border-color); }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <div class="back-nav">
-            <a href="index.html" class="back-link">← Return to Brand Hub</a>
-        </div>
-
+        <div class="back-nav"><a href="index.html" class="back-link">← Return to Brand Hub</a></div>
         <header id="main-header">
             <h1>Forex Smart Analytics Hub</h1>
             <p>Select your execution workspace pipeline below. Zero noise, pure precision mathematics.</p>
         </header>
-
         <div class="sub-nav-grid" id="sub-menu">
             <button class="sub-btn btn-calc" onclick="openTerminal('calc-view')">Position Size Calculator</button>
             <button class="sub-btn btn-tester" onclick="openTerminal('tester-view')">AI Trading Strategy Tester</button>
@@ -128,8 +64,7 @@
         <section class="terminal-view" id="calc-view">
             <button class="close-terminal-btn" onclick="closeTerminal()">← Change Workspace</button>
             <h2>Position Size Calculator</h2>
-            <p class="view-desc">Computes risk alignment profiles and outputs required standard lots for currency setups.</p>
-            
+            <p class="view-desc">Computes risk alignment profiles and outputs required standard lots.</p>
             <div class="input-box"> 
     <label>Account Currency / Instrument</label> 
     <select id="fx-pair"> 
@@ -142,21 +77,11 @@
     </select> 
 </div>
 
-            <div class="input-box">
-                <label>Account Balance ($)</label>
-                <input type="number" id="fx-balance" value="10000">
-            </div>
-            <div class="input-box">
-                <label>Risk Percentage (%)</label>
-                <input type="number" id="fx-risk-pct" value="1" step="0.1">
-            </div>
-            <div class="input-box">
-                <label>Stop Loss Distance (Pips)</label>
-                <input type="number" id="fx-pips" value="20">
-            </div>
-
+            <div class="input-box"><label>Account Balance ($)</label><input type="number" id="fx-balance" value="10000"></div>
+            <div class="input-box"><label>Risk Percentage (%)</label><input type="number" id="fx-risk-pct" value="1" step="0.1"></div>
+            <div class="input-box"><label>Stop Loss Distance (Pips)</label><input type="number" id="fx-pips" value="20"></div>
             <div style="background: rgba(0, 230, 118, 0.03); border: 1px dashed rgba(0, 230, 118, 0.2); display: flex; justify-content: space-between; align-items: center; padding: 22px; border-radius: 14px; margin-top: 28px;">
-                <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted);">Required Volume (Standard Lots)</span>
+                <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted);">Required Volume</span>
                 <span style="font-size: 1.7rem; font-weight: 800; color: var(--accent-green);" id="fx-lot-output">0.50 Lots</span>
             </div>
         </section>
@@ -164,151 +89,83 @@
         <section class="terminal-view" id="tester-view">
             <button class="close-terminal-btn" onclick="closeTerminal()">← Change Workspace</button>
             <h2>AI Trading Strategy Tester</h2>
-            <p class="view-desc">Activate your secure terminal terminal block below to run real Gemini AI backtest audits.</p>
-            
-            <div class="activation-banner">
-                <h3>✦ Secure AI Terminal Activation</h3>
-                <p>Paste your free Gemini API Key from Google AI Studio to securely boot the analysis core.</p>
-                <div class="activation-flex">
-                    <input type="password" id="user-gemini-key" placeholder="Paste your AIzaSy... key here">
-                    <button class="activation-btn" onclick="saveActivationKey()">Activate Engine</button>
-                </div>
-                <div class="key-status" id="activation-status"></div>
-            </div>
-
+            <p class="view-desc">Paste your custom strategy parameters to run a secure 1-click AI backtest audit.</p>
             <form id="tester-form" onsubmit="runRealAITest(event)">
                 <div class="input-box">
                     <label>Trading Instrument / Ticker</label>
-                    <input type="text" id="strategy-pair" placeholder="e.g., XAUUSD, EUR/USD, GBP/JPY" value="XAUUSD" required>
+                    <input type="text" id="strategy-pair" value="XAUUSD" required>
                 </div>
-                
                 <div class="input-box">
-                    <label>Strategy Specifications (Text or Code Block)</label>
-                    <textarea id="strategy-details" placeholder="Describe your entry/exit or paste PineScript/Python code here..." required></textarea>
+                    <label>Strategy Specifications</label>
+                    <textarea id="strategy-details" placeholder="Describe your entry/exit rules..." required></textarea>
                 </div>
-
                 <button type="submit" class="action-submit" id="ai-submit-btn">Run Real AI Backtest</button>
             </form>
-
             <div class="result-panel" id="tester-result-panel">
-                <div class="result-title">
-                    <span style="color: var(--accent-blue);">✦</span> Gemini AI Deep Backtest Audit Report
-                </div>
-                <div class="ai-report-content" id="ai-report-text">
-                    Analysis report will render here...
-                </div>
+                <div class="result-title" style="color: var(--accent-blue);">✦ Gemini AI Deep Backtest Audit Report</div>
+                <div class="ai-report-content" id="ai-report-text">Analysis report will render here...</div>
             </div>
         </section>
     </div>
-
-    <footer>
-        <p>&copy; 2026 CHALLENGE.THRILL. REAL MATHEMATICS. REAL INTEGRITY.</p>
-    </footer>
+    <footer><p>&copy; 2026 CHALLENGE.THRILL. REAL MATHEMATICS. REAL INTEGRITY.</p></footer>
 
     <script>
-        // Check for saved key on boot load
-        document.addEventListener("DOMContentLoaded", () => {
-            const savedKey = localStorage.getItem("ct_gemini_key");
-            if(savedKey) {
-                document.getElementById("user-gemini-key").value = savedKey;
-                showStatus("Terminal engine successfully armed and active.", "var(--accent-green)");
-            }
-        });
-
-        function saveActivationKey() {
-            const keyVal = document.getElementById("user-gemini-key").value.trim();
-            if(keyVal.startsWith("AIzaSy")) {
-                localStorage.setItem("ct_gemini_key", keyVal);
-                showStatus("Key encrypted locally. AI core initialized successfully!", "var(--accent-green)");
-            } else {
-                showStatus("Invalid sequence format. Key must originate with 'AIzaSy'.", "var(--danger-red)");
-            }
-        }
-
-        function showStatus(text, color) {
-            const statusBox = document.getElementById("activation-status");
-            statusBox.innerText = text;
-            statusBox.style.color = color;
-            statusBox.style.display = "block";
-        }
-
         function openTerminal(viewId) {
             document.getElementById('sub-menu').style.display = 'none';
             document.getElementById('main-header').style.display = 'none';
             document.getElementById(viewId).style.display = 'block';
             if(viewId === 'calc-view') calculateForexLots();
         }
-
         function closeTerminal() {
             document.querySelectorAll('.terminal-view').forEach(view => view.style.display = 'none');
             document.getElementById('sub-menu').style.display = 'flex';
             document.getElementById('main-header').style.display = 'block';
         }
-
         function calculateForexLots() {
             const balance = parseFloat(document.getElementById('fx-balance').value) || 0;
             const riskPct = parseFloat(document.getElementById('fx-risk-pct').value) || 0;
             const pips = parseFloat(document.getElementById('fx-pips').value) || 0;
             const pipValueMultiplier = parseFloat(document.getElementById('fx-pair').value) || 10;
-
             if (pips > 0 && balance > 0) {
                 const totalRiskAmount = balance * (riskPct / 100);
                 const totalLots = totalRiskAmount / (pips * pipValueMultiplier);
                 document.getElementById('fx-lot-output').innerText = `${totalLots.toFixed(2)} Lots`;
-            } else {
-                document.getElementById('fx-lot-output').innerText = '0.00 Lots';
-            }
+            } else { document.getElementById('fx-lot-output').innerText = '0.00 Lots'; }
         }
 
-        // CONNECT SECURE REAL-TIME GEMINI ENGINE
+        // Hitting our own Secure Vercel Serverless Function
         async function runRealAITest(event) {
             event.preventDefault();
-            
-            const activeKey = localStorage.getItem("ct_gemini_key");
             const pair = document.getElementById('strategy-pair').value;
             const details = document.getElementById('strategy-details').value;
             const submitBtn = document.getElementById('ai-submit-btn');
             const resultPanel = document.getElementById('tester-result-panel');
             const reportText = document.getElementById('ai-report-text');
 
-            if(!activeKey) {
-                alert("Bhai, pehle upar 'Secure AI Terminal Activation' panel mein apni key daal kar Activate karo!");
-                return;
-            }
-
             submitBtn.innerText = "🚨 Gemini AI Analysing Market Mechanics...";
             submitBtn.disabled = true;
             resultPanel.style.display = 'block';
-            reportText.innerText = "Connecting to Google AI Servers and executing logic parameters...";
-
-            const prompt = `You are an elite institutional algorithmic trader. Analyze the following trading strategy for the asset "${pair}". 
-            Strategy parameters: "${details}".
-            Provide a strict, professional backtesting audit report in clean bullet points. Break it down into:
-            1. Strategy Logic Validity Check
-            2. Asset Specific Behavior (Focus on volatility/liquidity sweeps for ${pair})
-            3. Statistical Matrix Prediction (Provide an estimated Win Rate %, Profit Factor, and Risk Status based on historical quantitative behavior)
-            4. Optimization suggestions to improve edge. Keep it practical and direct for traders.`;
+            reportText.innerText = "Processing secure server handshake and running quant evaluation...";
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${activeKey}`, {
+                const response = await fetch('/api/backtest', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                    body: JSON.stringify({ pair, details })
                 });
-
                 const data = await response.json();
-                const aiResponseText = data.candidates[0].content.parts[0].text;
-                
-                reportText.innerText = aiResponseText;
+                if(data.report) {
+                    reportText.innerText = data.report;
+                } else {
+                    reportText.innerText = "Error: " + (data.error || "Failed to generate report.");
+                }
             } catch (error) {
-                console.error(error);
-                reportText.innerText = "Error: API connection fell through. Please verify your Key settings or Network protocols.";
+                reportText.innerText = "Server Error: Make sure your Vercel Project Environment Variable is active.";
             } finally {
                 submitBtn.innerText = "Run Real AI Backtest";
                 submitBtn.disabled = false;
             }
         }
-
         document.getElementById('fx-balance').addEventListener('input', calculateForexLots);
         document.getElementById('fx-risk-pct').addEventListener('input', calculateForexLots);
         document.getElementById('fx-pips').addEventListener('input', calculateForexLots);
