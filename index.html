@@ -1,81 +1,234 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Primary Meta Tags -->
-    <title>Challenge.Thrill | AI Trading Tools, Stock Health Analyzer & Business Automation</title>
+    <title>Challenge.Thrill | AI Trading Tools, Stock Health & Business Automation</title>
     <meta name="title" content="Challenge.Thrill | AI Trading Tools, Stock Health Analyzer & Business Automation">
-    <meta name="description" content="Empower your finances with Challenge.Thrill. Access AI trading strategy testers, position size calculators, automated stock health scores, and smart Google Sheets for small businesses.">
-    <meta name="keywords" content="AI trading strategy tester, stock health score, position size calculator India, small business automation tools, automated stock screener, trade risk reward tool, Challenge Thrill finance">
+    <meta name="description" content="Unlock elite financial and scaling performance. Explore high-speed AI trading strategy testers, position size calculators, and automated stock health metrics alongside premium small business automation tools.">
+    <meta name="keywords" content="AI trading strategy tester, stock health score, position size calculator India, small business automation tools, automated stock screener, trade risk reward tool, risk reward ratio tool, smart trader analytics, stock fundamental analyzer AI, is this stock buy or sell, instant stock screener tool, free sales growth google sheets, business expense tracker templates, 10-minute business tool, Challenge Thrill">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     <meta name="author" content="Challenge.Thrill">
 
-    <!-- Open Graph / Facebook (For Social Media Sharing) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://intellimarketsai.github.io/challenge.thrill/">
     <meta property="og:title" content="Challenge.Thrill | AI Trading Tools & Business SaaS">
-    <meta property="og:description" content="AI strategy testers, instant stock health analyzer, and 10-minute small business automation tools.">
+    <meta property="og:description" content="AI strategy testers, instant stock health scores, and premium 10-minute business automation tools. Clean. Minimal. Powerful.">
     <meta property="og:image" content="https://intellimarketsai.github.io/challenge.thrill/assets/ctl.png">
 
-    <!-- Twitter Tags -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://github.io">
+    <meta property="twitter:url" content="https://intellimarketsai.github.io/challenge.thrill/">
     <meta property="twitter:title" content="Challenge.Thrill | AI Trading Tools & Business SaaS">
-    <meta property="twitter:description" content="AI strategy testers, instant stock health analyzer, and 10-minute small business automation tools.">
+    <meta property="twitter:description" content="AI strategy testers, instant stock health scores, and premium 10-minute business automation tools.">
     <meta property="twitter:image" content="https://intellimarketsai.github.io/challenge.thrill/assets/ctl.png">
 
-    <!-- Canonical URL to prevent duplication -->
     <link rel="canonical" href="https://intellimarketsai.github.io/challenge.thrill/" />
 
-    <!-- Google Schema Markup (Structured Data for Rich Snippets) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #050811;
+            --bg-card: #0D1222;
+            --accent-green: #00E676;
+            --accent-blue: #00B0FF;
+            --accent-purple: #A370F7;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-color: #1E293B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .main-hub {
+            max-width: 750px;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+        }
+
+        /* Elegant Logo Wrapper */
+        .brand-avatar-box {
+            margin-bottom: 28px;
+        }
+
+        .brand-logo-img {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+            border-radius: 24px;
+            border: 2px solid var(--border-color);
+            background-color: var(--bg-card);
+            box-shadow: 0 15px 35px rgba(0, 230, 118, 0.1);
+        }
+
+        /* SEO Rich Semantics & Typography */
+        h1 {
+            font-size: 3.6rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #FFFFFF 40%, #CBD5E1 70%, var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 18px;
+        }
+
+        .tagline-description {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto 54px auto;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Dedicated Pure Router Buttons Layout */
+        .navigation-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .router-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 32px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            position: relative;
+        }
+
+        .router-btn span {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        /* Subtext inside buttons for premium clarity and hidden SEO crawl */
+        .router-btn .sub-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Minimal Interactive Indicator Arrow */
+        .router-btn::after {
+            content: '→';
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .router-btn:hover::after {
+            transform: translateX(8px);
+        }
+
+        /* Unique Hover Profiles for Each Core Pillar */
+        .btn-traders { color: var(--text-main); }
+        .btn-traders:hover {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 30px rgba(0, 230, 118, 0.12);
+        }
+        .btn-traders:hover .sub-label { color: var(--accent-green); }
+
+        .btn-investors { color: var(--text-main); }
+        .btn-investors:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 30px rgba(0, 176, 255, 0.12);
+        }
+        .btn-investors:hover .sub-label { color: var(--accent-blue); }
+
+        .btn-business { color: var(--text-main); }
+        .btn-business:hover {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 30px rgba(163, 112, 247, 0.12);
+        }
+        .btn-business:hover .sub-label { color: var(--accent-purple); }
+
+        /* Fine-Print Footer */
+        footer {
+            color: #1E293B;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.6rem; }
+            .tagline-description { font-size: 1.1rem; margin-bottom: 40px; }
+            .router-btn { padding: 20px 24px; font-size: 1.05rem; }
+        }
+    </style>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Challenge.Thrill",
       "url": "https://intellimarketsai.github.io/challenge.thrill/",
-      "description": "AI-powered FinTech tools for retail traders, automated stock health analyzer for investors, and business automation sheets for small businesses.",
+      "description": "High-speed AI trading analytics, automated equity diagnostics, and premium SaaS automation tools for micro-enterprises.",
       "applicationCategory": "FinanceApplication, BusinessApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "INR",
-        "price": "Check Site"
-      }
+      "operatingSystem": "All"
     }
     </script>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
+    <div class="main-hub">
+        <div class="brand-avatar-box">
+            <img src="assets/ctl.png" alt="Challenge.Thrill Brand Identity" class="brand-logo-img" onerror="this.style.opacity='0';">
+        </div>
+
         <h1>Challenge.Thrill</h1>
-        <p>Smart AI Tools for Traders, Investors, and Small Businesses</p>
-    </header>
+        <p class="tagline-description">Precision-engineered digital ecosystems providing standalone terminals for performance trading, investment valuation, and zero-bloat business systems.</p>
 
-    <!-- Main Content for Google Crawlers -->
-    <main>
-        <!-- Service 1: Traders -->
-        <section id="traders-tools">
-            <h2>AI Tools for Retail Traders</h2>
-            <p>Optimize your trading with our <strong>AI trading strategy tester</strong>, precise <strong>position size calculator</strong>, and advanced risk-reward analytics.</p>
-        </section>
+        <nav class="navigation-grid">
+            <a href="traders.html" class="router-btn btn-traders">
+                <span>For Retail Traders<span class="sub-label">AI Strategy Tester & Position Math</span></span>
+            </a>
+            <a href="investors.html" class="router-btn btn-investors">
+                <span>For Investors<span class="sub-label">Automated Stock Health Analyzer AI</span></span>
+            </a>
+            <a href="business.html" class="router-btn btn-business">
+                <span>For Small Businesses<span class="sub-label">10-Minute SaaS Automation Sheets</span></span>
+            </a>
+        </nav>
+    </div>
 
-        <!-- Service 2: Investors -->
-        <section id="investors-tools">
-            <h2>Automated Stock Health Analyzer</h2>
-            <p>Get instant <strong>stock health scores</strong>. Enter any stock name, and our automated screener fetches live data to generate clear buy/sell reasoning.</p>
-        </section>
-
-        <!-- Service 3: Small Business -->
-        <section id="business-tools">
-            <h2>Small Business Automation & Growth</h2>
-            <p>Save time and money with 10-minute <strong>small business automation tools</strong> and premium Google Sheets designed for sales growth tracking.</p>
-        </section>
-    </main>
+    <footer>
+        <p>&copy; 2026 CHALLENGE.THRILL. ARCHITECTED FOR ALPHA.</p>
+    </footer>
 
 </body>
 </html>
+
