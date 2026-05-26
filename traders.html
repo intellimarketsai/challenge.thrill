@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>AI Trading Strategy Tester & Position Size Calculator India | Challenge.Thrill</title>
-    <meta name="title" content="AI Trading Strategy Tester & Position Size Calculator India | Challenge.Thrill">
-    <meta name="description" content="Optimize executions with our premium risk reward ratio tool and high-speed AI trading strategy tester. Calculate precise setups using the best position size calculator India has for retail traders.">
-    <meta name="keywords" content="AI trading strategy tester, position size calculator India, risk reward ratio tool, smart trader analytics, trade risk reward tool, Challenge Thrill traders, position sizing terminal">
+    <title>Forex Position Size Calculator & AI Strategy Tester | Challenge.Thrill</title>
+    <meta name="title" content="Forex Position Size Calculator & AI Strategy Tester | Challenge.Thrill">
+    <meta name="description" content="Calculate precise Forex lot sizes based on pips and manage risk with our risk reward ratio tool. Access the ultimate AI trading strategy tester for smart trader analytics.">
+    <meta name="keywords" content="AI trading strategy tester, position size calculator India, risk reward ratio tool, smart trader analytics, trade risk reward tool, Forex lot size calculator, pip calculator, Challenge Thrill traders">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://intellimarketsai.github.io/challenge.thrill/traders.html">
-    <meta property="og:title" content="Traders Terminal | AI Strategy Tester & Risk Tools">
-    <meta property="og:description" content="Run precise mathematical risk evaluations. Access the advanced position size calculator India and smart trader analytics instantly.">
+    <meta property="og:title" content="Forex Traders Terminal | Challenge.Thrill">
+    <meta property="og:description" content="Advanced Forex lot sizing and AI strategy validation terminal. Zero clutter, pure performance.">
     <meta property="og:image" content="ctl.png">
 
     <link rel="canonical" href="https://intellimarketsai.github.io/challenge.thrill/traders.html" />
@@ -28,10 +28,10 @@
             --bg-main: #050811;
             --bg-card: #0D1222;
             --accent-green: #00E676;
+            --accent-blue: #00B0FF;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --border-color: #1E293B;
-            --danger-red: #FF5252;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -42,17 +42,18 @@
             color: var(--text-main);
             min-height: 100vh;
             padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
         }
 
-        /* Nav Header */
-        .back-nav {
-            margin-bottom: 30px;
-        }
+        .back-nav { margin-bottom: 30px; }
         .back-link {
             color: var(--text-muted);
             text-decoration: none;
@@ -62,12 +63,9 @@
         }
         .back-link:hover { color: var(--accent-green); }
 
-        /* Semantic Header Setup */
-        header {
-            margin-bottom: 48px;
-        }
+        header { margin-bottom: 40px; text-align: center; }
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 800;
             letter-spacing: -1px;
             margin-bottom: 12px;
@@ -75,45 +73,59 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 700px;
+        header p { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* Two Clean Sub-Navigation Buttons */
+        .sub-nav-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
         }
 
-        /* Two Column Clean Grid Layout */
-        .workspace-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .workspace-card {
+        .sub-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 28px;
+            border-radius: 16px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #FFF;
+            text-decoration: none;
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .sub-btn::after { content: '→'; font-size: 1.3rem; transition: transform 0.3s; }
+        .sub-btn:hover::after { transform: translateX(6px); }
+        
+        .btn-calc:hover { border-color: var(--accent-green); box-shadow: 0 0 25px rgba(0, 230, 118, 0.12); color: var(--accent-green); }
+        .btn-tester:hover { border-color: var(--accent-blue); box-shadow: 0 0 25px rgba(0, 176, 255, 0.12); color: var(--accent-blue); }
+
+        /* Hidden Terminal Views */
+        .terminal-view {
+            display: none;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
             padding: 35px;
-            position: relative;
+            margin-top: 20px;
+            animation: fadeIn 0.4s ease forwards;
         }
 
-        .workspace-card h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #FFF;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .card-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
+        .terminal-view h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+        .view-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 26px; }
 
-        /* Clean Calculator Inputs */
-        .input-box {
-            margin-bottom: 18px;
-        }
+        /* Forms & Inputs */
+        .input-box { margin-bottom: 20px; }
         .input-box label {
             display: block;
             font-size: 0.85rem;
@@ -123,60 +135,53 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .input-box input {
+        .input-box input, .input-box select {
             width: 100%;
             background-color: #050811;
             border: 1px solid var(--border-color);
             padding: 14px;
-            border-radius: 10px;
+            border-radius: 12px;
             color: #FFF;
             font-size: 1rem;
-            font-family: inherit;
             font-weight: 600;
-            transition: border-color 0.2s;
+            font-family: inherit;
         }
-        .input-box input:focus {
-            outline: none;
-            border-color: var(--accent-green);
-        }
+        .input-box input:focus, .input-box select:focus { outline: none; border-color: var(--accent-green); }
 
-        /* Smart Display Panel */
+        /* Result Panel */
         .result-panel {
-            background: rgba(0, 230, 118, 0.04);
+            background: rgba(0, 230, 118, 0.03);
             border: 1px dashed rgba(0, 230, 118, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 24px;
+            border-radius: 14px;
+            padding: 22px;
+            margin-top: 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .result-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-muted);
+        .panel-blue {
+            background: rgba(0, 176, 255, 0.03);
+            border-color: rgba(0, 176, 255, 0.2);
         }
-        .result-value {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent-green);
-        }
+        .result-title { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); }
+        .result-value { font-size: 1.7rem; font-weight: 800; color: var(--accent-green); }
+        .value-blue { color: var(--accent-blue); }
 
-        /* Interactive Trigger Elements */
-        .action-btn {
-            width: 100%;
-            background-color: var(--accent-green);
-            color: #050811;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 700;
+        /* Back to Sub-menu Button inside terminals */
+        .close-terminal-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 10px 18px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: opacity 0.2s;
-            margin-top: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: all 0.2s;
         }
-        .action-btn:hover { opacity: 0.9; }
+        .close-terminal-btn:hover { background-color: #1E293B; color: #FFF; }
 
         footer {
             text-align: center;
@@ -184,12 +189,8 @@
             font-size: 0.85rem;
             font-weight: 700;
             padding-top: 40px;
+            margin-top: 40px;
             border-top: 1px solid var(--border-color);
-        }
-
-        @media (max-width: 600px) {
-            .workspace-grid { grid-template-columns: 1fr; }
-            header h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -200,110 +201,140 @@
             <a href="index.html" class="back-link">← Return to Brand Hub</a>
         </div>
 
-        <header>
-            <h1>Smart Trader Analytics Hub</h1>
-            <p>Deploy institutional grade risk management pipelines instantly. Eliminate absolute variance using mathematical execution frameworks built for retail optimization.</p>
+        <header id="main-header">
+            <h1>Forex Smart Analytics Hub</h1>
+            <p>Select your execution workspace pipeline below. Zero noise, pure precision mathematics.</p>
         </header>
 
-        <main class="workspace-grid">
+        <div class="sub-nav-grid" id="sub-menu">
+            <button class="sub-btn btn-calc" onclick="openTerminal('calc-view')">Position Size Calculator</button>
+            <button class="sub-btn btn-tester" onclick="openTerminal('tester-view')">AI Trading Strategy Tester</button>
+        </div>
+
+        <section class="terminal-view" id="calc-view">
+            <button class="close-terminal-btn" onclick="closeTerminal()">← Change Workspace</button>
+            <h2>Position Size Calculator</h2>
+            <p class="view-desc">Computes risk alignment profiles and outputs required standard lots for global currency setups.</p>
             
-            <section class="workspace-card">
-                <h2>Position Size Calculator India</h2>
-                <p class="card-desc">Calculate your precise quantity footprint per trade based on capital boundaries and strict risk caps.</p>
-                
-                <div class="input-box">
-                    <label for="capital">Total Trading Capital (₹)</label>
-                    <input type="number" id="capital" placeholder="e.g. 50000" value="100000">
-                </div>
-                <div class="input-box">
-                    <label for="risk-pct">Risk Account Percentage (%)</label>
-                    <input type="number" id="risk-pct" placeholder="e.g. 1" value="1">
-                </div>
-                <div class="input-box">
-                    <label for="stoploss">Stop Loss Distance (Points)</label>
-                    <input type="number" id="stoploss" placeholder="e.g. 10" value="50">
-                </div>
+            <div class="input-box">
+                <label>Account Currency / Base</label>
+                <select id="fx-pair">
+                    <option value="10" selected>USD Base Pair (e.g., EUR/USD, GBP/USD)</option>
+                    <option value="9">JPY Cross Pair (e.g., USD/JPY at average rates)</option>
+                </select>
+            </div>
+            <div class="input-box">
+                <label>Account Balance ($)</label>
+                <input type="number" id="fx-balance" value="10000">
+            </div>
+            <div class="input-box">
+                <label>Risk Percentage (%)</label>
+                <input type="number" id="fx-risk-pct" value="1" step="0.1">
+            </div>
+            <div class="input-box">
+                <label>Stop Loss Distance (Pips)</label>
+                <input type="number" id="fx-pips" value="20">
+            </div>
 
-                <div class="result-panel">
-                    <span class="result-title">Allocated Share Size</span>
-                    <span class="result-value" id="calc-shares">20</span>
-                </div>
-            </section>
+            <div class="result-panel">
+                <span class="result-title">Required Volume (Standard Lots)</span>
+                <span class="result-value" id="fx-lot-output">0.50 Lots</span>
+            </div>
+        </section>
 
-            <section class="workspace-card">
-                <h2>AI Trading Strategy Tester & Metrics</h2>
-                <p class="card-desc">Audit strategy validation metrics. Evaluate your execution health using our dynamic risk reward ratio tool.</p>
-                
-                <div class="input-box">
-                    <label for="entry-price">Planned Entry Target (₹)</label>
-                    <input type="number" id="entry-price" value="2200">
-                </div>
-                <div class="input-box">
-                    <label for="sl-price">Invalidation Target / Stop Loss (₹)</label>
-                    <input type="number" id="sl-price" value="2150">
-                </div>
-                <div class="input-box">
-                    <label for="target-price">Take Profit Target Zone (₹)</label>
-                    <input type="number" id="target-price" value="2350">
-                </div>
+        <section class="terminal-view" id="tester-view">
+            <button class="close-terminal-btn" onclick="closeTerminal()">← Change Workspace</button>
+            <h2>AI Trading Strategy Tester</h2>
+            <p class="view-desc">Audit invalidation systems and track strategy execution ratios seamlessly.</p>
+            
+            <div class="input-box">
+                <label>Execution Entry Price</label>
+                <input type="number" id="fx-entry" value="1.08500" step="0.00001">
+            </div>
+            <div class="input-box">
+                <label>Invalidation Level (Stop Loss)</label>
+                <input type="number" id="fx-sl" value="1.08300" step="0.00001">
+            </div>
+            <div class="input-box">
+                <label>Target Execution Level (Take Profit)</label>
+                <input type="number" id="fx-tp" value="1.09100" step="0.00001">
+            </div>
 
-                <div class="result-panel">
-                    <span class="result-title">Risk Reward Ratio Tool Output</span>
-                    <span class="result-value" id="calc-rr">1 : 3.0</span>
-                </div>
-            </section>
+            <div class="result-panel panel-blue">
+                <span class="result-title">Risk Reward Ratio Tool Output</span>
+                <span class="result-value value-blue" id="fx-rr-output">1 : 3.0</span>
+            </div>
+        </section>
 
-        </main>
-
-        <footer>
-            <p>&copy; 2026 CHALLENGE.THRILL. POWERED BY SMART RISK MATHEMATICS.</p>
-        </footer>
     </div>
 
+    <footer>
+        <p>&copy; 2026 CHALLENGE.THRILL. ENGINEERED FOR ALPHA PERFORMANCE.</p>
+    </footer>
+
     <script>
-        const capitalInput = document.getElementById('capital');
-        const riskPctInput = document.getElementById('risk-pct');
-        const stoplossInput = document.getElementById('stoploss');
-        const calcSharesOutput = document.getElementById('calc-shares');
+        // Router System
+        function openTerminal(viewId) {
+            document.getElementById('sub-menu').style.display = 'none';
+            document.getElementById('main-header').style.display = 'none';
+            
+            // Show selected view
+            document.getElementById(viewId).style.display = 'block';
+        }
 
-        const entryInput = document.getElementById('entry-price');
-        const slInput = document.getElementById('sl-price');
-        const targetInput = document.getElementById('target-price');
-        const rrOutput = document.getElementById('calc-rr');
+        function closeTerminal() {
+            // Hide all views
+            document.querySelectorAll('.terminal-view').forEach(view => view.style.display = 'none');
+            
+            // Show main selection cards
+            document.getElementById('sub-menu').style.display = 'flex';
+            document.getElementById('main-header').style.display = 'block';
+        }
 
-        function updatePositionSize() {
-            const cap = parseFloat(capitalInput.value) || 0;
-            const rPct = parseFloat(riskPctInput.value) || 0;
-            const slPoints = parseFloat(stoplossInput.value) || 0;
+        // Forex Lot Sizing Math Engine
+        function calculateForexLots() {
+            const balance = parseFloat(document.getElementById('fx-balance').value) || 0;
+            const riskPct = parseFloat(document.getElementById('fx-risk-pct').value) || 0;
+            const pips = parseFloat(document.getElementById('fx-pips').value) || 0;
+            const pipValueMultiplier = parseFloat(document.getElementById('fx-pair').value) || 10; // Standard Lot pip value default approx $10 for USD pairs
 
-            if(slPoints > 0) {
-                const absoluteRiskMoney = cap * (rPct / 100);
-                const shareQuantity = Math.floor(absoluteRiskMoney / slPoints);
-                calcSharesOutput.innerText = shareQuantity > 0 ? shareQuantity : 0;
+            if (pips > 0 && balance > 0) {
+                const totalRiskAmount = balance * (riskPct / 100);
+                // Standard Lot Calculation formula: Risk Amount / (Pips * Pip Value of 1 Standard Lot)
+                const totalLots = totalRiskAmount / (pips * pipValueMultiplier);
+                document.getElementById('fx-lot-output').innerText = `${totalLots.toFixed(2)} Lots`;
             } else {
-                calcSharesOutput.innerText = '0';
+                document.getElementById('fx-lot-output').innerText = '0.00 Lots';
             }
         }
 
-        function updateRiskReward() {
-            const entry = parseFloat(entryInput.value) || 0;
-            const sl = parseFloat(slInput.value) || 0;
-            const target = parseFloat(targetInput.value) || 0;
+        // Forex Risk-Reward Tool Math Engine
+        function calculateForexRR() {
+            const entry = parseFloat(document.getElementById('fx-entry').value) || 0;
+            const sl = parseFloat(document.getElementById('fx-sl').value) || 0;
+            const tp = parseFloat(document.getElementById('fx-tp').value) || 0;
 
-            const risk = Math.abs(entry - sl);
-            const reward = Math.abs(target - entry);
+            const totalRisk = Math.abs(entry - sl);
+            const totalReward = Math.abs(tp - entry);
 
-            if (risk > 0) {
-                const ratio = (reward / risk).toFixed(1);
-                rrOutput.innerText = `1 : ${ratio}`;
+            if (totalRisk > 0) {
+                const rrRatio = (totalReward / totalRisk).toFixed(1);
+                document.getElementById('fx-rr-output').innerText = `1 : ${rrRatio}`;
             } else {
-                rrOutput.innerText = '1 : 0';
+                document.getElementById('fx-rr-output').innerText = '1 : 0.0';
             }
         }
 
-        // Live telemetry computing fields
-        [capitalInput, riskPctInput, stoplossInput].forEach(input => input.addEventListener('input', updatePositionSize));
-        [entryInput, slInput, targetInput].forEach(input => input.addEventListener('input', updateRiskReward));
+        // Real-time Event Monitors
+        document.getElementById('fx-balance').addEventListener('input', calculateForexLots);
+        document.getElementById('fx-risk-pct').addEventListener('input', calculateForexLots);
+        document.getElementById('fx-pips').addEventListener('input', calculateForexLots);
+        document.getElementById('fx-pair').addEventListener('change', calculateForexLots);
+
+        document.getElementById('fx-entry').addEventListener('input', calculateForexWinners);
+        document.getElementById('fx-entry').addEventListener('input', calculateForexRR);
+        document.getElementById('fx-sl').addEventListener('input', calculateForexRR);
+        document.getElementById('fx-tp').addEventListener('input', calculateForexRR);
     </script>
 </body>
 </html>
