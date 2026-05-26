@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>AI Trading Strategy Tester & Position Size Calculator India | Challenge.Thrill</title>
+    <meta name="title" content="AI Trading Strategy Tester & Position Size Calculator India | Challenge.Thrill">
+    <meta name="description" content="Optimize executions with our premium risk reward ratio tool and high-speed AI trading strategy tester. Calculate precise setups using the best position size calculator India has for retail traders.">
+    <meta name="keywords" content="AI trading strategy tester, position size calculator India, risk reward ratio tool, smart trader analytics, trade risk reward tool, Challenge Thrill traders, position sizing terminal">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://intellimarketsai.github.io/challenge.thrill/traders.html">
+    <meta property="og:title" content="Traders Terminal | AI Strategy Tester & Risk Tools">
+    <meta property="og:description" content="Run precise mathematical risk evaluations. Access the advanced position size calculator India and smart trader analytics instantly.">
+    <meta property="og:image" content="ctl.png">
+
+    <link rel="canonical" href="https://intellimarketsai.github.io/challenge.thrill/traders.html" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #050811;
+            --bg-card: #0D1222;
+            --accent-green: #00E676;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-color: #1E293B;
+            --danger-red: #FF5252;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Nav Header */
+        .back-nav {
+            margin-bottom: 30px;
+        }
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-green); }
+
+        /* Semantic Header Setup */
+        header {
+            margin-bottom: 48px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #FFF 60%, var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        /* Two Column Clean Grid Layout */
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .workspace-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+        }
+
+        .workspace-card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #FFF;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* Clean Calculator Inputs */
+        .input-box {
+            margin-bottom: 18px;
+        }
+        .input-box label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .input-box input {
+            width: 100%;
+            background-color: #050811;
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            border-radius: 10px;
+            color: #FFF;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 600;
+            transition: border-color 0.2s;
+        }
+        .input-box input:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+
+        /* Smart Display Panel */
+        .result-panel {
+            background: rgba(0, 230, 118, 0.04);
+            border: 1px dashed rgba(0, 230, 118, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .result-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-green);
+        }
+
+        /* Interactive Trigger Elements */
+        .action-btn {
+            width: 100%;
+            background-color: var(--accent-green);
+            color: #050811;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 10px;
+        }
+        .action-btn:hover { opacity: 0.9; }
+
+        footer {
+            text-align: center;
+            color: #1E293B;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            .workspace-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="back-nav">
+            <a href="index.html" class="back-link">← Return to Brand Hub</a>
+        </div>
+
+        <header>
+            <h1>Smart Trader Analytics Hub</h1>
+            <p>Deploy institutional grade risk management pipelines instantly. Eliminate absolute variance using mathematical execution frameworks built for retail optimization.</p>
+        </header>
+
+        <main class="workspace-grid">
+            
+            <section class="workspace-card">
+                <h2>Position Size Calculator India</h2>
+                <p class="card-desc">Calculate your precise quantity footprint per trade based on capital boundaries and strict risk caps.</p>
+                
+                <div class="input-box">
+                    <label for="capital">Total Trading Capital (₹)</label>
+                    <input type="number" id="capital" placeholder="e.g. 50000" value="100000">
+                </div>
+                <div class="input-box">
+                    <label for="risk-pct">Risk Account Percentage (%)</label>
+                    <input type="number" id="risk-pct" placeholder="e.g. 1" value="1">
+                </div>
+                <div class="input-box">
+                    <label for="stoploss">Stop Loss Distance (Points)</label>
+                    <input type="number" id="stoploss" placeholder="e.g. 10" value="50">
+                </div>
+
+                <div class="result-panel">
+                    <span class="result-title">Allocated Share Size</span>
+                    <span class="result-value" id="calc-shares">20</span>
+                </div>
+            </section>
+
+            <section class="workspace-card">
+                <h2>AI Trading Strategy Tester & Metrics</h2>
+                <p class="card-desc">Audit strategy validation metrics. Evaluate your execution health using our dynamic risk reward ratio tool.</p>
+                
+                <div class="input-box">
+                    <label for="entry-price">Planned Entry Target (₹)</label>
+                    <input type="number" id="entry-price" value="2200">
+                </div>
+                <div class="input-box">
+                    <label for="sl-price">Invalidation Target / Stop Loss (₹)</label>
+                    <input type="number" id="sl-price" value="2150">
+                </div>
+                <div class="input-box">
+                    <label for="target-price">Take Profit Target Zone (₹)</label>
+                    <input type="number" id="target-price" value="2350">
+                </div>
+
+                <div class="result-panel">
+                    <span class="result-title">Risk Reward Ratio Tool Output</span>
+                    <span class="result-value" id="calc-rr">1 : 3.0</span>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 CHALLENGE.THRILL. POWERED BY SMART RISK MATHEMATICS.</p>
+        </footer>
+    </div>
+
+    <script>
+        const capitalInput = document.getElementById('capital');
+        const riskPctInput = document.getElementById('risk-pct');
+        const stoplossInput = document.getElementById('stoploss');
+        const calcSharesOutput = document.getElementById('calc-shares');
+
+        const entryInput = document.getElementById('entry-price');
+        const slInput = document.getElementById('sl-price');
+        const targetInput = document.getElementById('target-price');
+        const rrOutput = document.getElementById('calc-rr');
+
+        function updatePositionSize() {
+            const cap = parseFloat(capitalInput.value) || 0;
+            const rPct = parseFloat(riskPctInput.value) || 0;
+            const slPoints = parseFloat(stoplossInput.value) || 0;
+
+            if(slPoints > 0) {
+                const absoluteRiskMoney = cap * (rPct / 100);
+                const shareQuantity = Math.floor(absoluteRiskMoney / slPoints);
+                calcSharesOutput.innerText = shareQuantity > 0 ? shareQuantity : 0;
+            } else {
+                calcSharesOutput.innerText = '0';
+            }
+        }
+
+        function updateRiskReward() {
+            const entry = parseFloat(entryInput.value) || 0;
+            const sl = parseFloat(slInput.value) || 0;
+            const target = parseFloat(targetInput.value) || 0;
+
+            const risk = Math.abs(entry - sl);
+            const reward = Math.abs(target - entry);
+
+            if (risk > 0) {
+                const ratio = (reward / risk).toFixed(1);
+                rrOutput.innerText = `1 : ${ratio}`;
+            } else {
+                rrOutput.innerText = '1 : 0';
+            }
+        }
+
+        // Live telemetry computing fields
+        [capitalInput, riskPctInput, stoplossInput].forEach(input => input.addEventListener('input', updatePositionSize));
+        [entryInput, slInput, targetInput].forEach(input => input.addEventListener('input', updateRiskReward));
+    </script>
+</body>
+</html>
+
